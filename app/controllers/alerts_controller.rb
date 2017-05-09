@@ -1,6 +1,14 @@
 class AlertsController < ApplicationController
+   def alertlist
+      @alerts = Article.all
+   end
+   
    def new
        @alert = Alert.new
+   end
+   
+   def edit
+      @alert = Alert.find(params[:id])
    end
    
    def create
@@ -15,6 +23,16 @@ class AlertsController < ApplicationController
    
    def show
       @alert = Alert.find(params[:id]) 
+   end
+   
+   def update
+      @alert = Alert.find(params[:id])
+      if @alert.update(alert_params)
+           flash[:notice] = "Alert was successfully updated"
+           redirect_to alert_path(@alert)
+         else
+           render 'edit'
+         end
    end
    
    private

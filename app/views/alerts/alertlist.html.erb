@@ -1,0 +1,15 @@
+<h1>Listing all alerts</h1>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Issue</th>
+    </tr>
+    
+    <% @alerts.each do |alert| %>
+    <tr>
+        <td><%= alert.title %></td>
+        <td><%= alert.issue %></td>
+    </tr>
+    <% end %>
+</table>
