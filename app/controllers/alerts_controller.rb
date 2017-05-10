@@ -1,6 +1,6 @@
 class AlertsController < ApplicationController
    def alertlist
-      @alerts = Article.all
+      @alerts = Alert.all
    end
    
    def new
