@@ -14,6 +14,7 @@
         <td><%= alert.issue %></td>
         <td><%= link_to 'Edit'. edit_alert_path(alert) %></td>
         <td><%= link_to 'Show', alert_path(alert) %></td>
+        <td><%= link_to 'Delete', alert_path(alert), method: :delete, data: {confirm: "Are you sure?"} %></td>
     </tr>
     <% end %>
 </table>
