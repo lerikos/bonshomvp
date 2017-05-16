@@ -4,6 +4,5 @@ class Alert < ActiveRecord::Base
     validates :action, presence: true, length: { minimum: 3 }
     validates :source, presence: true, length: { minimum: 3 }
     has_many :products
+    has_many :users, through: :products
 end
-
-    

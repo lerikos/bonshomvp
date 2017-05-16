@@ -10,5 +10,5 @@ class User < ActiveRecord::Base
              format: { with: VALID_EMAIL_REGEX }
    has_secure_password
    has_many :products
-   
+   has_many :alerts, through: :products
 end
