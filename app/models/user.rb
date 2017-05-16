@@ -9,6 +9,6 @@ class User < ActiveRecord::Base
              uniqueness: { case_sensitive: false },
              format: { with: VALID_EMAIL_REGEX }
    has_secure_password
-   has_many :products
-   
+   has_many :skills
+   has_many :tags, through: :skills
 end
