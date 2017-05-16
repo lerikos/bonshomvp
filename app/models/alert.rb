@@ -3,6 +3,7 @@ class Alert < ActiveRecord::Base
     validates :issue, presence: true, length: { minimum: 3 }
     validates :action, presence: true, length: { minimum: 3 }
     validates :source, presence: true, length: { minimum: 3 }
+    has_many :products
 end
 
     

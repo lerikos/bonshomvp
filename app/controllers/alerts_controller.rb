@@ -1,5 +1,7 @@
 class AlertsController < ApplicationController
-   def alertlist
+   before_action :set_alert, only: [:edit, :update, :show, :destory]
+   
+   def alerts
       @alerts = Alert.all
    end
    
@@ -8,7 +10,6 @@ class AlertsController < ApplicationController
    end
    
    def edit
-      @alert = Alert.find(params[:id])
    end
    
    def create
@@ -22,11 +23,15 @@ class AlertsController < ApplicationController
    end
    
    def show
-      @alert = Alert.find(params[:id]) 
+   end
+   
+   def destory
+      @alert.destory
+      flash[:notice] = "Alert was successfully deleted"
+      redirect_to alerts_path
    end
    
    def update
-      @alert = Alert.find(params[:id])
       if @alert.update(alert_params)
            flash[:notice] = "Alert was successfully updated"
            redirect_to alert_path(@alert)
@@ -36,7 +41,19 @@ class AlertsController < ApplicationController
    end
    
    private
+   def set_alert
+      @alert = Alert.find(params[:id])
+   end
+   
    def alert_params
        params.require(:alert).permit(:title, :issue, :action, :source)
    end
+   
+   def require_admin
+      if current_user != !current_user.admin?
+         flash[:danger] = "You can only create, edit or delete alerts if you are an admin"
+         redirect_to root_path
+      end
+   end
+      
 end
