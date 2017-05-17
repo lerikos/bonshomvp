@@ -1,9 +1,9 @@
 class CreateUserAlertAssociation < ActiveRecord::Migration
   def change
-    create_table :skills do |t|
+    create_table :preferences do |t|
       t.belongs_to :user, index: true
       t.belongs_to :tag, index: true
-      t.datetime :skill_date
+      t.datetime :preference_date
       t.timestamps
     end
 
