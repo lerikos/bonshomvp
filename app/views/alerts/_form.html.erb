@@ -1,25 +1,4 @@
-<% if @alert.errors.any? %>
-<div class="row">
-  <div class="col-xs-8 col-xs-offset-2">
-    <div class="panel panel-danger">
-      <div class="panel-heading">
-        <h2 class="panel-title">
-          <%= pluralize(@alert.errors.count, "error") %>
-          prohibited this alert from being saved:
-        </h2>
-        <div class="panel-body">
-          <ul>
-            <% @alert.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<% end %>
+<%= render 'shared/errors', obj: @alert %>
 
 <div class='row'>
   <div class='col-xs-12'>

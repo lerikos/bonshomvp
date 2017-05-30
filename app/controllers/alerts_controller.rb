@@ -15,7 +15,7 @@ class AlertsController < ApplicationController
    def create
        @alert = Alert.new(alert_params)
        if @alert.save
-           flash[:notice] = "Alert was successfully created"
+           flash[:success] = "Alert was successfully created"
            redirect_to alert_path(@alert)
            else
            render 'new'
@@ -25,15 +25,16 @@ class AlertsController < ApplicationController
    def show
    end
    
-   def destory
-      @alert.destory
-      flash[:notice] = "Alert was successfully deleted"
+   def destroy
+      @alert = Alert.find(params[:id])
+      @alert.destroy
+      flash[:danger] = "Alert was successfully deleted"
       redirect_to alerts_path
    end
    
    def update
       if @alert.update(alert_params)
-           flash[:notice] = "Alert was successfully updated"
+           flash[:success] = "Alert was successfully updated"
            redirect_to alert_path(@alert)
          else
            render 'edit'
