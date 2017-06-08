@@ -11,4 +11,5 @@ class User < ActiveRecord::Base
    has_secure_password
    has_many :preferences
    has_many :tags, through: :preferences
+   has_many :products
 end

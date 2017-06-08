@@ -5,4 +5,5 @@ class Alert < ActiveRecord::Base
   validates :source, presence: true, length: { minimum: 3 }
   has_many :concerns
   has_many :tags, through: :concerns
+  has_many :products
 end
