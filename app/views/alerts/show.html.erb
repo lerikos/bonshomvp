@@ -19,5 +19,5 @@
 <p>
     Created: <%= @alert.created_at %>
 </p>
-<%= link_to 'Edit this alert'. edit_alert_path(alert) %> |
+<%= link_to 'Edit this alert', edit_alert_path(@alert) %> |
 <%= link_to "Back to alerts listing", alerts_path %>
