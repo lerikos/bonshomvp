@@ -2,10 +2,10 @@
   background: url('bg-pattern.png'),linear-gradient(to left,#7b4397,#dc2430);
   height: calc(100vh - 52px);
   min-height: 550px;
-  margin-top: -20px;
   margin-bottom: -20px;
   overflow: hidden;
   padding: 0;
+  width: 100%;
 
   .header-wrapper {
     width: 1170px;
@@ -122,4 +122,8 @@
     color: grey;
     padding-top: 15px;
   }
+}
+
+.navbar {
+  margin-bottom: 0px;
 }
