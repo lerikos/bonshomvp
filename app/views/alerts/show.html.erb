@@ -1,8 +1,5 @@
-<h1>Showing selected alert</h1>
+<h2 align="center">Title: <%= @alert.title %></h2>
 
-<p>
-    Title: <%= @alert.title %>
-</p>
 
 <p>
     Issue: <%= @alert.issue %>
@@ -19,5 +16,7 @@
 <p>
     Created: <%= @alert.created_at %>
 </p>
-<%= link_to 'Edit this alert', edit_alert_path(@alert) %> |
+
+<%= link_to "Edit this alert", edit_alert_path(@alert) %> |
 <%= link_to "Back to alerts listing", alerts_path %>
+

@@ -38,7 +38,7 @@ class AlertsController < ApplicationController
 
    def update
       if @alert.update(alert_params)
-           flash[:notice] = "Alert was successfully updated"
+           flash[:success] = "Alert was successfully updated"
            redirect_to alert_path(@alert)
          else
            render 'edit'

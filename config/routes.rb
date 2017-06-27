@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :alerts
 
   get 'signup', to: 'users#new'
+  resources :users, except: [:new]
   # Example resource route with options:
   #   resources :products do
   #     member do

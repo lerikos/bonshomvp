@@ -1,11 +1,4 @@
-<% if @alert.errors.any? %>
-<h2>The following errors prevented the alert from being created</h2>
-<ul>
-    <% @alert.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
-</ul>
-<% end %>
+<%= render 'shared/errors', obj: @alert %>
 
 <div class='row'>
   <div class='col-xs-12'>
