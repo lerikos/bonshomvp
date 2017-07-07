@@ -1,3 +1,17 @@
+#logo {
+  float: left;
+  font-size: 1.7em;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  margin-top: 9px;
+  font-family: CinzelDecorativeBold;
+  font-weight: 900;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 .jumbotron {
   background: url('bg-pattern.png'),linear-gradient(to left,#7b4397,#dc2430);
   height: calc(100vh - 52px);

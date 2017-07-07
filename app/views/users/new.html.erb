@@ -2,59 +2,36 @@
 
 <%= render 'shared/errors', obj: @user %>
 
-<div class='row'>
-  <div class='col-xs-12'>
-    <%= form_for(@user, :html => {class: "form-horizontal", role: "form"}) do |f| %>
-      <div class="form-group">
-        <div class="control-label col-sm-2">
-          <%= f.label :username %>
-        </div>
-        <div class="col-sm-8">
-          <%= f.text_field :username, class: "form-control", placeholder: "Enter username", autofocus: true %>
-        </div>
+<div class='form'>
+  <div class='wrapper'>
+    <%= form_for(@user, :html => {class: "form-horizontal", role: "form", url: user_registration_path, method: :post}) do |f| %>
+      <div class="form-group username">
+        <%= f.label :username %>
+        <%= f.text_field :username, autofocus: true, onkeyup: "check('.username')" %>
       </div>
-      <div class="form-group">
-        <div class="control-label col-sm-2">
-          <%= f.label :email %>
-        </div>
-        <div class="col-sm-8">
-          <%= f.email_field :email, class: "form-control", placeholder: "Enter email address" %>
-        </div>
+      <div class="form-group email">
+        <%= f.label :email %>
+        <%= f.email_field :email, onkeyup: "check('.email')" %>
       </div>
-      <div class="form-group">
-        <div class="control-label col-sm-2">
-          <%= f.label :firstname %>
-        </div>
-        <div class="col-sm-8">
-          <%= f.text_field :firstname, class: "form-control", placeholder: "Enter firstname" %>
-        </div>
+      <div class="form-group firstname">
+        <%= f.label :firstname %>
+        <%= f.text_field :firstname, onkeyup: "check('.firstname')" %>
       </div>
-      <div class="form-group">
-        <div class="control-label col-sm-2">
-          <%= f.label :lastname %>
-        </div>
-        <div class="col-sm-8">
-          <%= f.text_field :lastname, class: "form-control", placeholder: "Enter lastname" %>
-        </div>
+      <div class="form-group lastname">
+        <%= f.label :lastname %>
+        <%= f.text_field :lastname, onkeyup: "check('.lastname')" %>
       </div>
-            <div class="form-group">
-        <div class="control-label col-sm-2">
-          <%= f.label :password %>
-        </div>
-        <div class="col-sm-8">
-          <%= f.password_field :password, class: "form-control", placeholder: "Enter password" %>
-        </div>
+      <div class="form-group password">
+        <%= f.label :password %>
+        <%= f.password_field :password, onkeyup: "check('.password')" %>
       </div>
-<!--p>
-    <!--%= f.label :status %>
-    <!--%= f.check_box :status, :'data-toggle'=>"toggle" %>
-</p-->
-<p>
-        <%= f.submit "Sign up", class: 'btn btn-primary btn-lg' %>
-        </div>
-</p>
-        <% end %>
+      <div class="form-group password-confirmation">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, onkeyup: "check('.password-confirmation')" %>
+      </div>
+      <%= submit_tag "Sign up", class: 'btn btn-primary btn-lg form-submit' %>
+    <% end %>
 
-        <%= link_to "Back to alerts listing", alerts_path %>
-    </div>
+    <%= link_to "Back to alerts listing", alerts_path, class: 'back' %>
+  </div>
 </div>
