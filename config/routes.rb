@@ -4,6 +4,5 @@ Rails.application.routes.draw do
 
   get 'alerts', to: 'alerts#alerts'
   resources :alerts
-  get 'signup', to: 'users#new'
   resources :users, except: [:new]
 end

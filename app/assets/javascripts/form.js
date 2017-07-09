@@ -2,6 +2,8 @@ function check(selector) {
   $(selector + ' label').addClass('up');
   if ($(selector + ' input').val().length > 0) {
     $(selector + ' label').addClass('up');
+    $(selector + ' input').removeClass('failed');
+    $(selector + ' .error-msg').empty();
   }
   else {
     $(selector + ' label').removeClass('up');
