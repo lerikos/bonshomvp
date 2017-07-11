@@ -3,7 +3,7 @@
   min-width: 310px;
   margin: auto;
 
-  input {
+  input, textarea, select {
     color: #323232;
     background-color: #fff;
     font-weight: 200;
@@ -15,7 +15,7 @@
     border-radius: 3px;
   }
 
-  input:focus, select:focus {
+  input:focus, select:focus, textarea:focus, select:focus {
     outline: 1px solid rgba(55, 58, 60, 0.54);
     transition: all 0.2s ease-in-out;
   }
@@ -103,7 +103,8 @@
 
   .back {
     text-decoration: none;
-    width: 100%;
+    width: 200px;
+    margin-left: calc(50% - 100px);
     text-align: center;
     display: block;
     font-size: 11px;
@@ -111,5 +112,40 @@
     &:hover {
       text-decoration: underline;
     }
+  }
+}
+
+.error-wrapper {
+  padding-left: 15px;
+  padding-right: 15px;
+  background: rgba(255, 0, 0, 0.15);
+}
+
+.alert-actions, .product-actions {
+  width: 60%;
+
+  textarea {
+    padding-top: 7px;
+    min-height: 100px;
+    max-width: 100%;
+  }
+
+  select {
+    height: 150px;
+    outline: none;
+
+    &:focus {
+      box-shadow: none;
+      border: none;
+    }
+
+    option {
+      padding: 10px;
+    }
+  }
+
+  .form-submit {
+    width: 200px;
+    margin-left: calc(50% - 100px);
   }
 }

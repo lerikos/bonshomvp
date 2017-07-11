@@ -1,8 +1,14 @@
 <h1 align="center">Sign in Bonsho</h1>
 
 <div class='form'>
+  <% flash.each do |name, msg| %>
+    <div class='alert alert-<%="#{name}" %> error-wrapper'>
+      <a href="#" class="close" data-dismiss="alert">&#215;</a>
+      <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+    </div>
+  <% end %>
   <div class='wrapper'>
-    <%= form_for(@user, :html => {class: "form-horizontal", role: "form", url: user_session_path, method: :post}) do |f| %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: "form" }) do |f| %>
       <div class="form-group email">
         <%= f.label :email %>
         <%= "<span class='error-msg'>#{@user.errors[:email].first}</span>".html_safe unless @user.errors[:email].empty? %>

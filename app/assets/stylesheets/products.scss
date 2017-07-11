@@ -1,0 +1,43 @@
+.products-wrapper {
+  width: 100%;
+
+  .products-header {
+    width: 80%;
+    margin: auto;
+    display: flex;
+
+    h1 {
+      width: 100%;
+    }
+
+    a {
+      width: 100px;
+      line-height: 15px;
+      text-decoration: none;
+    }
+
+    span {
+      line-height: 15px;
+      background: rgba(7, 119, 214, .3);
+      color: rgba(0, 0, 0, .7);
+      width: 100%;
+      outline: none;
+      border-radius: 2px;
+      border: none;
+      padding: 0px;
+      margin-bottom: 5px;
+      margin-top: 19px;
+      display: block;
+      height: 40px;
+      padding: 12px 10px 0px 16px;
+      font-size: 15px;
+      font-weight: 700;
+
+      &:hover {
+        color: #fff;
+        background: rgb(7, 80, 214);
+        transition: all ease-in .2s;
+      }
+    }
+  }
+}

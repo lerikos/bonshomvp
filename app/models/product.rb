@@ -1,4 +1,6 @@
 class Product < ActiveRecord::Base
   belongs_to :user
-  belongs_to :tag
+  has_many :tags
+  has_many :product_tags
+  has_many :tags, through: :product_tags
 end

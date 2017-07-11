@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => {:registrations => "registrations" }
+  devise_for :users, :controllers => {:registrations => "registrations", :sessions => "sessions"}
   root 'pages#home'
 
   get 'alerts', to: 'alerts#alerts'
   resources :alerts
+  resources :products
   resources :users, except: [:new]
 end
