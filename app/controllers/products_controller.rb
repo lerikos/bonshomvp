@@ -6,6 +6,18 @@ class ProductsController < ApplicationController
   end
 
   def create
+    @product = Product.new(product_params)
+    if @product.save
+      params[:product][:tags].each do |tag|
+        result = Tag.find_by(name: tag)
+        @product.product_tags.create(tag_id: result.id) if result
+      end
+      flash[:notice] = "Product was successfully created"
+      NotificationSenderJob.perform_later(@product)
+      redirect_to product_path(@product)
+      else
+      render 'new'
+    end
   end
 
   def new
@@ -13,14 +25,27 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @product = Product.find_by(id: params[:id])
   end
 
   def update
+    @product = Product.find_by(id: params[:id])
+    if @product.update(product_params)
+      @product.product_tags.destroy_all
+      params[:product][:tags].each do |tag|
+        result = Tag.find_by(name: tag)
+        @product.product_tags.create(tag_id: result.id) if result
+      end
+      flash[:success] = "Alert was successfully updated"
+      redirect_to product_path(@product)
+    else
+      render 'edit'
+    end
   end
 
   private
-    def products_params
-      params.require(:user).permit(:username, :firstname, :lastname, :email, :password)
+    def product_params
+      params.require(:product).permit(:name, :description)
     end
 
     def check_user

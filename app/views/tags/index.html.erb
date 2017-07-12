@@ -1,0 +1,31 @@
+<div class='tags-wrapper'>
+  <div class='tags-header'>
+    <h1>All existing tags</h1>
+    <a class='add-new-tag'>
+      <span>Add New</span>
+    </a>
+  </div>
+  <div class="form tag-creator out">
+    <%= form_for Tag.new, remote: true do |f| %>
+      <div class="form-group name">
+        <%= f.label :name %>
+        <%= f.text_field :name, onkeyup: "check('.name')", autocomplete: "off", class: 'tag-name' %>
+      </div>
+      <%= submit_tag "Create new tag", class: 'btn btn-primary btn-lg form-submit', disabled: 'disabled' %>
+    <% end %>
+  </div>
+  <div class='item-edit'></div>
+  <div class="tags-list">
+    <% @tags.each do |tag| %>
+      <div class="tag-item">
+        <h4><%= tag.name %></h4>
+        <span><%= '????' %> products subscribes</span>
+        <span><%= '????' %> alerts subscribes</span>
+        <span><%= '????' %> users subscribes</span>
+        <%= link_to "Edit", edit_tag_path(tag.id), remote: true %>
+        <%= link_to "Delete", tag_path(tag.id), method: :delete, data: {confirm: 'Are you sure?'} %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<script>pageReady();</script>

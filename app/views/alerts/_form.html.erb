@@ -23,7 +23,7 @@
       </div>
       <div class="form-group">
         <%= f.label :tags, class: 'up' %>
-        <%= f.select :tags, Tag.all.collect { |tag| tag.name }, { :multiple => true }, include_blank: false, class: "form-control", multiple: 'multiple', size: Tag.count > 5 ? 5 : Tag.count %>
+        <%= f.select :tags, Tag.all.collect { |tag| tag.name }, { :multiple => true, include_blank: false, selected: @alert.tags.collect { |tag| tag.name } }, class: "form-control", multiple: 'multiple', size: Tag.count > 5 ? 5 : Tag.count %>
       </div>
       <%= submit_tag (action_name == 'new' ? "Create Alert" : "Update Alert"), class: 'btn btn-primary btn-lg form-submit' %>
     <% end %>
@@ -31,6 +31,4 @@
     <%= link_to "Back to alerts listing", alerts_path, class: 'back' %>
   </div>
 </div>
-<script>
-  pageReady();
-</script>
+<script>pageReady();</script>

@@ -41,4 +41,31 @@ function pageReady () {
     if ($('.action').length > 0) { checkTextArea('.action'); }
     if ($('.source').length > 0) { check('.source'); }
   }
+
+  if ($('.product-actions').length > 0) {
+    if ($('.name').length > 0) { check('.name'); }
+    if ($('.description').length > 0) { checkTextArea('.description'); }
+  }
+
+  $('.add-new-tag').click(function(){
+    $('.tag-creator').removeClass('out');
+  })
+
+  $('.tag-creator .tag-name').keyup(function(){
+    if ($('.tag-creator .tag-name').val().length > 0) {
+      $('.tag-creator .form-submit').removeAttr('disabled')
+    }
+    else {
+      $('.tag-creator .form-submit').attr('disabled', 'disabled')
+    }
+  })
+
+  $('.tag-editor .tag-name').keyup(function(){
+    if ($('.tag-editor .tag-name').val().length > 0) {
+      $('.tag-editor .form-submit').removeAttr('disabled')
+    }
+    else {
+      $('.tag-editor .form-submit').attr('disabled', 'disabled')
+    }
+  })
 }
