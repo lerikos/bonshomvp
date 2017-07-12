@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   get 'alerts', to: 'alerts#alerts'
+  get 'subscribe', to: 'users#subscribe'
+  post '/follow-to-tag', to: 'users#check_tag_follow'
   resources :alerts
   resources :products
   resources :tags

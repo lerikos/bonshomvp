@@ -12,5 +12,6 @@ class User < ActiveRecord::Base
              format: { with: VALID_EMAIL_REGEX }
   has_many :preferences
   has_many :tags, through: :preferences
-  has_many :products
+  has_many :subscribers
+  has_many :products, through: :subscribers
 end

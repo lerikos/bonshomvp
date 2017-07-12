@@ -1,0 +1,58 @@
+.page-wrapper {
+  width: 100%;
+
+  .subscribe-content {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+
+    .tag-list {
+      width: 25%;
+      margin-right: 5%;
+
+      ul {
+        padding: 0px;
+      }
+
+      .tag-item {
+        padding: 2px;
+        list-style: none;
+        background: rgba(250, 235, 215, 0.9);
+        margin-bottom: 8px;
+        border-radius: 50px;
+        padding-left: 20px;
+        cursor: pointer;
+        overflow: hidden;
+
+        h3 {
+          font-size: 20px;
+          margin: 0px;
+          line-height: 40px;
+        }
+
+        &:hover {
+          opacity: .5;
+        }
+      }
+
+      .tag-item.in {
+        background: rgba(215, 250, 215, 0.6);
+      }
+    }
+
+    .product-list {
+      width: 70%;
+
+      .product-item {
+        width: 100%;
+        display: block;
+        margin-bottom: 45px;
+
+        h3 {
+          font-family: VastShadow;
+        }
+      }
+    }
+  }
+}
