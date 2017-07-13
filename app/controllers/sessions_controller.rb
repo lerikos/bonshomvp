@@ -5,7 +5,7 @@ class SessionsController < Devise::SessionsController
     # end
 
     def after_sign_in_path_for(resource)
-      '/alerts'
+      '/alerts-listing'
     end
 
     def after_sign_out_path_for(resource)

@@ -19,9 +19,9 @@
     <% @tags.each do |tag| %>
       <div class="tag-item">
         <h4><%= tag.name %></h4>
-        <span><%= '????' %> products subscribes</span>
-        <span><%= '????' %> alerts subscribes</span>
-        <span><%= '????' %> users subscribes</span>
+        <span><%= tag.products.count %> products assigned</span>
+        <span><%= tag.alerts.count %> alerts assigned</span>
+        <span><%= tag.users.count %> users subscribes</span>
         <%= link_to "Edit", edit_tag_path(tag.id), remote: true %>
         <%= link_to "Delete", tag_path(tag.id), method: :delete, data: {confirm: 'Are you sure?'} %>
       </div>

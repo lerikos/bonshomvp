@@ -1,7 +1,7 @@
-.products-wrapper, .tags-wrapper {
+.products-wrapper, .tags-wrapper, .alerts-wrapper {
   width: 100%;
 
-  .products-header, .tags-header {
+  .products-header, .tags-header, .alerts-header {
     width: 80%;
     margin: auto;
     display: flex;
@@ -45,11 +45,11 @@
   }
 }
 
-.products-list, .tags-list {
+.products-list, .tags-list, .alerts-list {
   width: 80%;
   margin: auto;
 
-  .product-item, .tag-item {
+  .product-item, .tag-item, .alert-item {
     width: 100%;
     height: 50px;
     padding: 10px;
@@ -89,6 +89,21 @@
     &:hover {
       background: #e6e6e6;
       transition: .3s;
+    }
+  }
+
+  .alert-item h4 {
+    width: 40%;
+
+    a {
+      cursor: pointer;
+      pointer-events: all;
+      color: rgba(0, 0, 0, .7);
+      text-decoration: none;
+
+      &:hover {
+        color: #155ead;
+      }
     }
   }
 }

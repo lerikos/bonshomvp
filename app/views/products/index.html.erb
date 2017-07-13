@@ -10,7 +10,7 @@
       <div class="product-item">
         <h4><%= product.name %></h4>
         <p><%= product.description.first(30) %>...</p>
-        <span><%= '????' %> users subscribes</span>
+        <span><%= product.users.count %> users subscribes</span>
         <%= link_to "Edit", edit_product_path(product.id) %>
         <%= link_to "Delete", product_path(product.id), method: :delete, data: {confirm: 'Are you sure?'} %>
       </div>

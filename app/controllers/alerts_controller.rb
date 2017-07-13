@@ -1,12 +1,12 @@
 class AlertsController < ApplicationController
    before_action :set_alert, only: [:edit, :update, :show, :destory]
 
-   def alerts
-      @alerts = Alert.all
+   def index
+     @alerts = Alert.all
    end
 
    def new
-       @alert = Alert.new
+     @alert = Alert.new
    end
 
    def edit
@@ -28,10 +28,11 @@ class AlertsController < ApplicationController
    end
 
    def show
+     @alert = Alert.select{|a| a.title.downcase.gsub(' ', '-') == params[:id]}.first unless @alert
    end
 
-   def destory
-      @alert.destory
+   def destroy
+      Alert.find_by(id: params[:id]).destroy
       flash[:notice] = "Alert was successfully deleted"
       redirect_to alerts_path
    end
@@ -52,7 +53,7 @@ class AlertsController < ApplicationController
 
    private
      def set_alert
-        @alert = Alert.find(params[:id])
+        @alert = Alert.find_by(id: params[:id])
      end
 
      def alert_params

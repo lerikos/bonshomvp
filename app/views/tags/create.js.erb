@@ -1,5 +1,5 @@
-var html_str = "<div class='tag-item'><h4><%= @new_tag.name %></h4><span><%= '????' %> products subscribes</span>"+
-               "<span><%= '????' %> alerts subscribes</span><span><%= '????' %> users subscribes</span>"+
+var html_str = "<div class='tag-item'><h4><%= @new_tag.name %></h4><span><%= @new_tag.products.count %> products assigned</span>"+
+               "<span><%= @new_tag.alerts.count %> alerts assigned</span><span><%= @new_tag.users.count %> users subscribes</span>"+
                "<a href=<%= edit_tag_path(@new_tag.id) %> data-remote='true'>Edit</a><a href=<%= tag_path(@new_tag.id) %>"+
                " data-confirm='Are you sure?' rel='nofollow' data-method='delete'>Delete</a></div>";
 $('.tags-list').append(html_str);

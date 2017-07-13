@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
       end
       flash[:notice] = "Product was successfully created"
       NotificationSenderJob.perform_later(@product)
-      redirect_to product_path(@product)
+      redirect_to products_path
       else
       render 'new'
     end
@@ -37,10 +37,18 @@ class ProductsController < ApplicationController
         @product.product_tags.create(tag_id: result.id) if result
       end
       flash[:success] = "Alert was successfully updated"
-      redirect_to product_path(@product)
+      redirect_to products_path
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    product = Product.find_by(id: params[:id])
+    product.product_tags.destroy_all
+    product.subscribers.destroy_all
+    product.destroy
+    redirect_to products_path
   end
 
   private
