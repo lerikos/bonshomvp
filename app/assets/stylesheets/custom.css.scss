@@ -23,11 +23,23 @@
   background-color: black;
 }
 
+.container-wrapper {
+  width: 100%;
+  min-height: calc(100vh - 96px)!important;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 footer {
-  margin-top: 45px;
-  padding-top: 5px;
   border-top: 1px solid #eaeaea;
   color: #777;
+  padding: 5px;
+  background: rgba(202, 202, 202, .1);
+
+  p {
+    text-align: center;
+    padding-top: 3px;
+  }
 }
 
 footer a:hover {

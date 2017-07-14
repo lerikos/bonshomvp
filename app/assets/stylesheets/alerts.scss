@@ -57,7 +57,7 @@
   }
 }
 
-.alert.show {
+.alert.show, .product.show {
   width: 100%;
   overflow: hidden;
   display: flex;
@@ -69,6 +69,25 @@
 
     h1 {
       margin-bottom: 20px;
+    }
+
+    ul {
+      width: 100%;
+      padding: 0px;
+      padding-top: 10px;
+      margin-top: -20px;
+
+      li {
+        display: inline-block;
+        padding: 5px 20px;
+        border-radius: 10px;
+        background: grey;
+        font-weight: 900;
+        margin-left: 5px;
+        background: rgba(128, 128, 128, .85);
+        cursor: default;
+        margin-bottom: 5px;
+      }
     }
 
     p {

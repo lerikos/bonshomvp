@@ -5,7 +5,7 @@
         <h1>Last Alerts</h1>
         <% @alerts.each do |alert| %>
           <div class='alert'>
-            <h3><%= link_to alert.title, alert_path(id: alert.title.downcase.gsub(' ', '-')) %></h3>
+            <h3><%= alert.title %></h3>
             <p><%= alert.issue.first(100) %>...<%= link_to 'read more', alert_path(id: alert.title.downcase.gsub(' ', '-')) %></p>
           </div>
         <% end %>
@@ -14,7 +14,7 @@
         <h1>Followed Products</h1>
         <% @products.each do |product| %>
           <div class='product'>
-            <h3><%= link_to product.name, product_path(id: product.name.downcase.gsub(' ', '-')) %></h3>
+            <h3><%= product.name %></h3>
             <p><%= product.description.first(100) %>...<%= link_to 'read more', product_path(id: product.name.downcase.gsub(' ', '-')) %></p>
           </div>
         <% end %>

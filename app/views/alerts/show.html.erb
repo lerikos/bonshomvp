@@ -1,6 +1,11 @@
 <div class="alert show">
   <div class='content'>
     <h1 align="center"><%= @alert.title %></h1>
+    <ul>
+      <% @alert.tags.each do |tag| %>
+        <li><%= tag.name %></li>
+      <% end %>
+    </ul>
     <p class='issue'><%= @alert.issue %></p>
     <p class='action'><%= @alert.action %></p>
     <p class='source'>Source: <%= link_to @alert.source, @alert.source %></p>

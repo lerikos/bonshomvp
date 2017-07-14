@@ -5,6 +5,11 @@ class AlertsController < ApplicationController
      @alerts = Alert.all
    end
 
+   def all_alerts
+     @alerts = Alert.all.reverse
+     render 'users/alerts'
+   end
+
    def new
      @alert = Alert.new
    end

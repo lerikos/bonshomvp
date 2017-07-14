@@ -20,6 +20,11 @@ class ProductsController < ApplicationController
     end
   end
 
+  def show
+    @product = Product.find_by(id: params[:id])
+    @product = Product.select{|a| a.name.downcase.gsub(' ', '-') == params[:id]}.first unless @product
+  end
+
   def new
     @product = Product.new
   end

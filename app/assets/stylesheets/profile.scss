@@ -14,8 +14,6 @@
       width: 30%;
       border: 1px groove #12124a;
       padding: 0px 10px;
-      display: flex;
-      flex-wrap: wrap;
       min-width: 300px;
       float: left;
 
@@ -63,6 +61,7 @@
           margin-left: 5px;
           background: rgba(128, 128, 128, .85);
           cursor: default;
+          margin-bottom: 5px;
         }
       }
     }

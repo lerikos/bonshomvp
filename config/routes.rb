@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'alerts-listing', to: 'users#alerts'
   get 'subscribe', to: 'users#subscribe'
   get '/profile', to: 'users#profile'
+  get '/all-alerts', to: 'alerts#all_alerts'
   post '/follow-on-tag', to: 'users#check_tag_follow'
   post '/follow-on-product', to: 'users#check_product_follow'
   post '/search', to: 'users#search'
