@@ -5,7 +5,7 @@ $(document).ready(function(){
 
 function checkFollowTag() {
   $('.tag-item').click(function(e){
-    let id = $(this).data('id');
+    var id = $(this).data('id');
     $.ajax({
       url: '/follow-on-tag',
       dataType:'json',
@@ -24,7 +24,7 @@ function checkFollowTag() {
 
 function checkFollowProduct() {
   $('.product-item .status').click(function(e){
-    let id = $(this).data('id');
+    var id = $(this).data('id');
     $.ajax({
       url: '/follow-on-product',
       dataType:'json',

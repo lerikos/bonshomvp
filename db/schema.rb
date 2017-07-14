@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20170712125026) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "alerts", force: :cascade do |t|
     t.string   "title"
     t.text     "issue"
@@ -28,8 +31,8 @@ ActiveRecord::Schema.define(version: 20170712125026) do
     t.datetime "concern_date"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.index ["alert_id"], name: "index_concerns_on_alert_id"
-    t.index ["tag_id"], name: "index_concerns_on_tag_id"
+    t.index ["alert_id"], name: "index_concerns_on_alert_id", using: :btree
+    t.index ["tag_id"], name: "index_concerns_on_tag_id", using: :btree
   end
 
   create_table "preferences", force: :cascade do |t|
@@ -38,8 +41,8 @@ ActiveRecord::Schema.define(version: 20170712125026) do
     t.datetime "preference_date"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.index ["tag_id"], name: "index_preferences_on_tag_id"
-    t.index ["user_id"], name: "index_preferences_on_user_id"
+    t.index ["tag_id"], name: "index_preferences_on_tag_id", using: :btree
+    t.index ["user_id"], name: "index_preferences_on_user_id", using: :btree
   end
 
   create_table "product_tags", force: :cascade do |t|
@@ -47,8 +50,8 @@ ActiveRecord::Schema.define(version: 20170712125026) do
     t.datetime "updated_at", null: false
     t.integer  "tag_id"
     t.integer  "product_id"
-    t.index ["product_id"], name: "index_product_tags_on_product_id"
-    t.index ["tag_id"], name: "index_product_tags_on_tag_id"
+    t.index ["product_id"], name: "index_product_tags_on_product_id", using: :btree
+    t.index ["tag_id"], name: "index_product_tags_on_tag_id", using: :btree
   end
 
   create_table "products", force: :cascade do |t|
@@ -58,8 +61,8 @@ ActiveRecord::Schema.define(version: 20170712125026) do
     t.integer  "user_id"
     t.integer  "alert_id"
     t.text     "description"
-    t.index ["alert_id"], name: "index_products_on_alert_id"
-    t.index ["user_id"], name: "index_products_on_user_id"
+    t.index ["alert_id"], name: "index_products_on_alert_id", using: :btree
+    t.index ["user_id"], name: "index_products_on_user_id", using: :btree
   end
 
   create_table "subscribers", force: :cascade do |t|
@@ -67,8 +70,8 @@ ActiveRecord::Schema.define(version: 20170712125026) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.integer  "product_id"
-    t.index ["product_id"], name: "index_subscribers_on_product_id"
-    t.index ["user_id"], name: "index_subscribers_on_user_id"
+    t.index ["product_id"], name: "index_subscribers_on_product_id", using: :btree
+    t.index ["user_id"], name: "index_subscribers_on_user_id", using: :btree
   end
 
   create_table "tags", force: :cascade do |t|
@@ -94,8 +97,8 @@ ActiveRecord::Schema.define(version: 20170712125026) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
 end

@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 5.0.4'
-gem 'sqlite3'
+gem 'pg', '~> 0.20.0'
 gem 'puma', '~> 3.9.1'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'sass-rails', '~> 5.0.6'
@@ -20,4 +20,10 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
+
+  gem 'capistrano',         require: false
+  gem 'capistrano3-puma',   require: false
+  gem 'capistrano-rvm',     require: false
+  gem 'capistrano-rails',   require: false
+  gem 'capistrano-bundler', require: false
 end

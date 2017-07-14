@@ -15,6 +15,6 @@
       <%= link_to "Edit this alert", edit_alert_path(@alert) %> |
     <% end %>
     <%= link_to "Go to subscribing page", '/subscribe' %> |
-    <%= link_to "Back to alerts listing", alerts_path %>
+    <%= link_to "Back to alerts listing", (current_user.admin ? alerts_path : '/alerts-listing') %>
   </div>
 </div>

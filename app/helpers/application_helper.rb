@@ -1,7 +1,6 @@
 module ApplicationHelper
   def per_day product
-    puts DateTime.now
-    puts DateTime.now.to_i
-    product.alerts.uniq.count/((DateTime.now.to_i - product.created_at.to_i)/1.day)
+    ago = (DateTime.now.to_i - product.created_at.to_i)/1.day
+    product.alerts.uniq.count/(ago == 0 ? 1 : ago)
   end
 end

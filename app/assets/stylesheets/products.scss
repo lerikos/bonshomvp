@@ -1,5 +1,7 @@
 .products-wrapper, .tags-wrapper, .alerts-wrapper {
   width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 
   .products-header, .tags-header, .alerts-header {
     width: 80%;

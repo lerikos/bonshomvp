@@ -97,7 +97,7 @@
         }
 
         .status.in {
-          background-image: url('add.ico');
+          background-image: image-url('add.ico');
 
           &::after {
             content: 'Follow';
@@ -105,7 +105,7 @@
         }
 
         .status.added {
-          background-image: url('checked.ico');
+          background-image: image-url('checked.ico');
 
           &::after {
             content: 'UnFollow';
