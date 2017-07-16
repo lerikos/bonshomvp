@@ -50,8 +50,6 @@ class ProductsController < ApplicationController
 
   def destroy
     product = Product.find_by(id: params[:id])
-    product.product_tags.destroy_all
-    product.subscribers.destroy_all
     product.destroy
     redirect_to products_path
   end

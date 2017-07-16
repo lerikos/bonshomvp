@@ -22,6 +22,10 @@
         <%= f.text_field :source, onkeyup: "check('.source')", class: "#{'failed' unless @alert.errors[:source].empty?}", autocomplete: "off" %>
       </div>
       <div class="form-group">
+        <%= f.label :products, class: 'up' %>
+        <%= f.select :products, Product.all.collect { |product| product.name }, { :multiple => true, include_blank: false, selected: @alert.products.collect { |product| product.name } }, class: "form-control", multiple: 'multiple', size: Product.count > 5 ? 5 : Product.count %>
+      </div>
+      <div class="form-group">
         <%= f.label :tags, class: 'up' %>
         <%= f.select :tags, Tag.all.collect { |tag| tag.name }, { :multiple => true, include_blank: false, selected: @alert.tags.collect { |tag| tag.name } }, class: "form-control", multiple: 'multiple', size: Tag.count > 5 ? 5 : Tag.count %>
       </div>

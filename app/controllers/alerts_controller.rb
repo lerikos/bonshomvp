@@ -24,6 +24,10 @@ class AlertsController < ApplicationController
          result = Tag.find_by(name: tag)
          @alert.concerns.create(tag_id: result.id) if result
        end
+       params[:alert][:products].each do |product|
+         result = Product.find_by(name: product)
+         @alert.alert_products.create(product_id: result.id) if result
+       end
        flash[:notice] = "Alert was successfully created"
        NotificationSenderJob.perform_later(@alert)
        redirect_to alert_path(@alert)
