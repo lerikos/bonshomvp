@@ -1,0 +1,18 @@
+<div class="alerts-wrapper">
+  <div class="alerts">
+    <h1><%= action_name == 'alerts' ? 'Your alerts listing' : 'All alerts listing' %></h1>
+    <% @alerts.each do |alert| %>
+      <div class='allert'>
+        <h3><%= link_to alert.title, alert_path(alert.title.downcase.gsub(' ', '-')) %></h3>
+        <% if alert.created_at > current_user.last_sign_in_at && alert.created_at > DateTime.now - 1.day %>
+          <span class='new'>
+            New!!!
+          </span>
+        <% end %>
+        <hr>
+        <p class='date'><%= alert.created_at.strftime('%H:%M %B,%d ') %></p>
+        <p><%= alert.issue %></p>
+      </div>
+    <% end %>
+  </div>
+</div>

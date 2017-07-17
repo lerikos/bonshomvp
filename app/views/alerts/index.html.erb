@@ -1,0 +1,19 @@
+<div class='alerts-wrapper'>
+  <div class='alerts-header'>
+    <h1>All existing alerts/services</h1>
+    <%= link_to new_alert_path do %>
+      <span>Add New</span>
+    <% end %>
+  </div>
+  <div class="alerts-list">
+    <% @alerts.each do |alert| %>
+      <div class="alert-item">
+        <h4><%= link_to alert.title, alert_path(alert.id) %></h4>
+        <p><%= alert.created_at.strftime('%Y-%m-%d %H:%M') %></p>
+        <span><%= alert.users.count %> users assigned</span>
+        <%= link_to "Edit", edit_alert_path(alert.id) %>
+        <%= link_to "Delete", alert_path(alert.id), method: :delete, data: {confirm: 'Are you sure?'} %>
+      </div>
+    <% end %>
+  </div>
+</div>

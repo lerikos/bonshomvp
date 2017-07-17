@@ -1,60 +1,16 @@
 Rails.application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-   root 'pages#home'
-   
-   get 'alerts', to: 'alerts#alerts'
-  # You can have the root of your site routed with "root"
- 
-  #get 'home', to: 'pages#home'
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  devise_for :users, :controllers => {:registrations => "registrations", :sessions => "sessions"}
+  root 'pages#home'
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
+  get 'alerts-listing', to: 'users#alerts'
+  get 'subscribe', to: 'users#subscribe'
+  get '/profile', to: 'users#profile'
+  get '/all-alerts', to: 'alerts#all_alerts'
+  post '/follow-on-tag', to: 'users#check_tag_follow'
+  post '/follow-on-product', to: 'users#check_product_follow'
+  post '/search', to: 'users#search'
   resources :alerts
-
-  get 'signup', to: 'users#new'
+  resources :products
+  resources :tags
   resources :users, except: [:new]
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
 end

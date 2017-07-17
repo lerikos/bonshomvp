@@ -1,0 +1,11 @@
+<div class='item-edit'>
+  <div class="form tag-editor out">
+    <%= form_for @editin_tag do |f| %>
+      <div class="form-group edit-name">
+        <%= f.label :name, class: 'up' %>
+        <%= f.text_field :name, onkeyup: "check('.edit-name')", autocomplete: "off", class: 'tag-name' %>
+      </div>
+      <%= submit_tag "Update tag", class: 'btn btn-primary btn-lg form-submit', disabled: 'disabled' %>
+    <% end %>
+  </div>
+</div>

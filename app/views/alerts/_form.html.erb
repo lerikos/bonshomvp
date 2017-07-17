@@ -1,58 +1,38 @@
-<%= render 'shared/errors', obj: @alert %>
-
-<div class='row'>
-  <div class='col-xs-12'>
+<div class='form alert-actions'>
+  <div class='wrapper'>
     <%= form_for(@alert, :html => {class: "form-horizontal", role: "form"}) do |f| %>
-      <div class="form-group">
-        <div class="control-label col-sm-2">
-          <%= f.label :title %>
-        </div>
-        <div class="col-sm-8">
-          <%= f.text_field :title, class: "form-control", placeholder: "Title of Alert", autofocus: true %>
-        </div>
+      <div class="form-group title">
+        <%= f.label :title %>
+        <%= "<span class='error-msg'>#{@alert.errors[:title].first}</span>".html_safe unless @alert.errors[:title].empty? %>
+        <%= f.text_field :title, onkeyup: "check('.title')", class: "#{'failed' unless @alert.errors[:title].empty?}", autocomplete: "off" %>
+      </div>
+      <div class="form-group issue">
+        <%= f.label :issue %>
+        <%= "<span class='error-msg'>#{@alert.errors[:issue].first}</span>".html_safe unless @alert.errors[:issue].empty? %>
+        <%= f.text_area :issue, onkeyup: "checkTextArea('.issue')", class: "#{'failed' unless @alert.errors[:issue].empty?}", autocomplete: "off" %>
+      </div>
+      <div class="form-group action">
+        <%= f.label :action %>
+        <%= "<span class='error-msg'>#{@alert.errors[:action].first}</span>".html_safe unless @alert.errors[:action].empty? %>
+        <%= f.text_area :action, onkeyup: "checkTextArea('.action')", class: "#{'failed' unless @alert.errors[:action].empty?}", autocomplete: "off" %>
+      </div>
+      <div class="form-group source">
+        <%= f.label :source %>
+        <%= "<span class='error-msg'>#{@alert.errors[:source].first}</span>".html_safe unless @alert.errors[:source].empty? %>
+        <%= f.text_field :source, onkeyup: "check('.source')", class: "#{'failed' unless @alert.errors[:source].empty?}", autocomplete: "off" %>
       </div>
       <div class="form-group">
-        <div class="control-label col-sm-2">
-          <%= f.label :issue %>
-        </div>
-        <div class="col-sm-8">
-          <%= f.text_area :issue, class: "form-control", placeholder: "What is the issue" %>
-        </div>
+        <%= f.label :products, class: 'up' %>
+        <%= f.select :products, Product.all.collect { |product| product.name }, { :multiple => true, include_blank: false, selected: @alert.products.collect { |product| product.name } }, class: "form-control", multiple: 'multiple', size: Product.count > 5 ? 5 : Product.count %>
       </div>
-      <div class="form-group">
-        <div class="control-label col-sm-2">
-          <%= f.label :action %>
-        </div>
-        <div class="col-sm-8">
-          <%= f.text_area :action, class: "form-control", placeholder: "What action needs to be taken" %>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="control-label col-sm-2">
-          <%= f.label :source %>
-        </div>
-        <div class="col-sm-8">
-          <%= f.text_field :source, class: "form-control", placeholder: "What is the information source" %>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="control-label col-sm-2">
-          <%= f.label :tags %>
-        </div>
-        <div class="col-sm-8">
-          <%= f.select :tags, Tag.all.collect { |tag| tag.name }, { :multiple => true }, include_blank: false, class: "form-control", multiple: 'multiple', size: Tag.count > 5 ? 5 : Tag.count %>
-        </div>
-      </div>
-<!--p>
-    <!--%= f.label :status %>
-    <!--%= f.check_box :status, :'data-toggle'=>"toggle" %>
-</p-->
-<p>
-        <%= f.submit class: 'btn btn-primary btn-lg' %>
-        </div>
-</p>
-        <% end %>
+      <!-- <div class="form-group">
+        <%#= f.label :tags, class: 'up' %>
+        <%#= f.select :tags, Tag.all.collect { |tag| tag.name }, { :multiple => true, include_blank: false, selected: @alert.tags.collect { |tag| tag.name } }, class: "form-control", multiple: 'multiple', size: Tag.count > 5 ? 5 : Tag.count %>
+      </div> -->
+      <%= submit_tag (action_name == 'new' ? "Create Alert" : "Update Alert"), class: 'btn btn-primary btn-lg form-submit' %>
+    <% end %>
 
-        <%= link_to "Back to alerts listing", alerts_path %>
-    </div>
+    <%= link_to "Back to alerts listing", alerts_path, class: 'back' %>
+  </div>
 </div>
+<script>pageReady();</script>

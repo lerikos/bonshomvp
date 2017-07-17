@@ -1,0 +1,151 @@
+.form {
+  width: 20%;
+  min-width: 310px;
+  margin: auto;
+
+  input, textarea, select {
+    color: #323232;
+    background-color: #fff;
+    font-weight: 200;
+    width: 100%;
+    vertical-align: top;
+    border: 1px solid #e5e6e6;
+    height: 35px;
+    padding-left: 10px;
+    border-radius: 3px;
+  }
+
+  input:focus, select:focus, textarea:focus, select:focus {
+    outline: 1px solid rgba(55, 58, 60, 0.54);
+    transition: all 0.2s ease-in-out;
+  }
+
+  .failed {
+    border: 1px solid #f71a42;
+
+    &:focus, select:focus {
+      outline: 1px solid #f71a42;
+    }
+  }
+
+  .form-group {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 25px;
+    position: relative;
+
+    label {
+      position: absolute;
+      top: 8px;
+      left: 10px;
+      z-index: 10000;
+      font-size: 14px;
+      font-weight: 200;
+      color: #808080;
+      pointer-events: none;
+      transition: all ease-in .5s;
+    }
+
+    label.up {
+      top: -15px;
+      left: 0px;
+      font-size: 11px;
+      color: rgba(0, 0, 0, .6);
+      font-weight: 600;
+      transition: all ease-in .5s;
+    }
+
+    .error-msg {
+      position: absolute;
+      top: -1px;
+      left: 1px;
+      z-index: 10000;
+      font-size: 10px;
+      font-weight: 200;
+      color: #f71a42;
+      pointer-events: none;
+      text-transform: capitalize;
+    }
+  }
+
+  .check-box {
+    margin-top: -5px;
+
+    input {
+      width: 15px;
+      height: 15px;
+    }
+
+    label {
+      top: 2px;
+      left: 20px;
+      pointer-events: auto;
+    }
+  }
+
+  .form-submit {
+    line-height: 15px;
+    background: rgba(7, 119, 214, .3);
+    color: rgba(0, 0, 0, .7);
+    width: 100%;
+    outline: none;
+    border-radius: 2px;
+    border: none;
+    padding: 0px;
+    margin-bottom: 5px;
+
+    &:hover {
+      color: #fff;
+      background: rgb(7, 80, 214);
+      transition: all ease-in .2s;
+    }
+  }
+
+  .back {
+    text-decoration: none;
+    width: 200px;
+    margin-left: calc(50% - 100px);
+    text-align: center;
+    display: block;
+    font-size: 11px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.error-wrapper {
+  padding-left: 15px;
+  padding-right: 15px;
+  background: rgba(255, 0, 0, 0.15);
+}
+
+.alert-actions, .product-actions {
+  width: 60%;
+
+  textarea {
+    padding-top: 7px;
+    min-height: 100px;
+    max-width: 100%;
+  }
+
+  select {
+    height: 150px;
+    outline: none;
+
+    &:focus {
+      box-shadow: none;
+      border: none;
+    }
+
+    option {
+      padding: 10px;
+    }
+  }
+
+  .form-submit {
+    width: 200px;
+    margin-left: calc(50% - 100px);
+  }
+}

@@ -1,0 +1,122 @@
+.page-wrapper {
+  width: 100%;
+
+  .subscribe-content {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+
+    .tag-list {
+      width: 25%;
+      margin-right: 5%;
+
+      ul {
+        padding: 0px;
+      }
+
+      .tag-item {
+        padding: 2px;
+        list-style: none;
+        background: rgba(250, 235, 215, .9);
+        margin-bottom: 8px;
+        border-radius: 50px;
+        padding-left: 20px;
+        cursor: pointer;
+        overflow: hidden;
+
+        h3 {
+          font-size: 20px;
+          margin: 0px;
+          line-height: 40px;
+        }
+
+        &:hover {
+          opacity: .5;
+        }
+      }
+
+      .tag-item.in {
+        background: rgba(215, 250, 215, .6);
+      }
+    }
+
+    .product-list {
+      width: 70%;
+
+      .form {
+        width: 100%;
+        display: flex;
+
+        .search-submit {
+          width: 15%;
+          background: rgba(233, 241, 255, .75);
+
+          &:hover {
+            background: rgba(188, 210, 249, .8);
+          }
+        }
+      }
+
+      .product-item {
+        width: 100%;
+        display: block;
+        margin-bottom: 45px;
+
+        h3 {
+          font-family: VastShadow;
+        }
+
+        .status {
+          width: 18px;
+          height: 18px;
+          display: inline-block;
+          background-size: cover;
+          margin-left: 10px;
+          cursor: pointer;
+          position: relative;
+
+          &::after {
+            display: none;
+            font-family: monospace;
+            position: absolute;
+            top: 0px;
+            left: 25px;
+            background: #dadada;
+            font-size: 14px;
+            height: 19px;
+            line-height: 15px;
+            padding: 2px 10px;
+          }
+
+          &:hover {
+            &::after {
+              display: inline-block;
+            }
+          }
+        }
+
+        .status.in {
+          background-image: image-url('add.ico');
+
+          &::after {
+            content: 'Follow';
+          }
+        }
+
+        .status.added {
+          background-image: image-url('checked.ico');
+
+          &::after {
+            content: 'UnFollow';
+          }
+        }
+      }
+    }
+
+    .without-tag {
+      width: 100%;
+      margin: auto;
+    }
+  }
+}
