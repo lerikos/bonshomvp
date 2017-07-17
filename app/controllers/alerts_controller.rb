@@ -49,10 +49,10 @@ class AlertsController < ApplicationController
    def update
      if @alert.update(alert_params)
        @alert.concerns.destroy_all
-       params[:alert][:tags].each do |tag|
-         result = Tag.find_by(name: tag)
-         @alert.concerns.create(tag_id: result.id) if result
-       end
+      #  params[:alert][:tags].each do |tag|
+      #    result = Tag.find_by(name: tag)
+      #    @alert.concerns.create(tag_id: result.id) if result
+      #  end
        flash[:success] = "Alert was successfully updated"
        redirect_to alert_path(@alert)
      else

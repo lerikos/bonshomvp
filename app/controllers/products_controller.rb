@@ -37,10 +37,10 @@ class ProductsController < ApplicationController
     @product = Product.find_by(id: params[:id])
     if @product.update(product_params)
       @product.product_tags.destroy_all
-      params[:product][:tags].each do |tag|
-        result = Tag.find_by(name: tag)
-        @product.product_tags.create(tag_id: result.id) if result
-      end
+      # params[:product][:tags].each do |tag|
+      #   result = Tag.find_by(name: tag)
+      #   @product.product_tags.create(tag_id: result.id) if result
+      # end
       flash[:success] = "Alert was successfully updated"
       redirect_to products_path
     else
