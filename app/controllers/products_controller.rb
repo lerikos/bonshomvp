@@ -8,10 +8,10 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      params[:product][:tags].each do |tag|
-        result = Tag.find_by(name: tag)
-        @product.product_tags.create(tag_id: result.id) if result
-      end
+      # params[:product][:tags].each do |tag|
+      #   result = Tag.find_by(name: tag)
+      #   @product.product_tags.create(tag_id: result.id) if result
+      # end
       flash[:notice] = "Product was successfully created"
       NotificationSenderJob.perform_later(@product)
       redirect_to products_path

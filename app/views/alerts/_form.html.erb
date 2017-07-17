@@ -25,10 +25,10 @@
         <%= f.label :products, class: 'up' %>
         <%= f.select :products, Product.all.collect { |product| product.name }, { :multiple => true, include_blank: false, selected: @alert.products.collect { |product| product.name } }, class: "form-control", multiple: 'multiple', size: Product.count > 5 ? 5 : Product.count %>
       </div>
-      <div class="form-group">
-        <%= f.label :tags, class: 'up' %>
-        <%= f.select :tags, Tag.all.collect { |tag| tag.name }, { :multiple => true, include_blank: false, selected: @alert.tags.collect { |tag| tag.name } }, class: "form-control", multiple: 'multiple', size: Tag.count > 5 ? 5 : Tag.count %>
-      </div>
+      <!-- <div class="form-group">
+        <%#= f.label :tags, class: 'up' %>
+        <%#= f.select :tags, Tag.all.collect { |tag| tag.name }, { :multiple => true, include_blank: false, selected: @alert.tags.collect { |tag| tag.name } }, class: "form-control", multiple: 'multiple', size: Tag.count > 5 ? 5 : Tag.count %>
+      </div> -->
       <%= submit_tag (action_name == 'new' ? "Create Alert" : "Update Alert"), class: 'btn btn-primary btn-lg form-submit' %>
     <% end %>
 

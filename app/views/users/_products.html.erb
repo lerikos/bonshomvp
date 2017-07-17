@@ -1,4 +1,4 @@
-<div class='product-list'>
+<div class='product-list without-tag'>
   <h1>Follow Via Product</h1>
   <%= form_tag '/search', {:multipart => true, method: "post", class: 'form', remote: true} do %>
     <%= text_field_tag 'search', '', placeholder: 'Enter keywords', value: @str || '' %>

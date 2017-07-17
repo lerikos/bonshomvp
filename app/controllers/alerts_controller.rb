@@ -20,10 +20,10 @@ class AlertsController < ApplicationController
    def create
      @alert = Alert.new(alert_params)
      if @alert.save
-       params[:alert][:tags].each do |tag|
-         result = Tag.find_by(name: tag)
-         @alert.concerns.create(tag_id: result.id) if result
-       end
+      #  params[:alert][:tags].each do |tag|
+      #    result = Tag.find_by(name: tag)
+      #    @alert.concerns.create(tag_id: result.id) if result
+      #  end
        params[:alert][:products].each do |product|
          result = Product.find_by(name: product)
          @alert.alert_products.create(product_id: result.id) if result

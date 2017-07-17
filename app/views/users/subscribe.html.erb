@@ -1,6 +1,6 @@
 <div class='page-wrapper'>
   <div class='subscribe-content'>
-    <div class='tag-list'>
+    <!-- <div class='tag-list'>
       <h1>Follow Via Tag</h1>
       <ul>
         <% @tags.each do |tag| %>
@@ -9,8 +9,8 @@
           </li>
         <% end %>
       </ul>
-    </div>
-    <div class='product-list'>
+    </div> -->
+    <div class='product-list without-tag'>
       <h1>Follow Via Product</h1>
       <%= form_tag '/search', {:multipart => true, method: "post", class: 'form', remote: true} do %>
         <%= text_field_tag 'search', '', placeholder: 'Enter keywords', value: @str || '' %>
