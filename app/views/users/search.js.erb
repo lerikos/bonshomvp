@@ -1,0 +1,8 @@
+<% unless @str == '' %>
+  window.history.pushState({}, "", '/subscribe?search=<%= @str %>');
+<% else %>
+  window.history.pushState({}, "", '/subscribe');
+<% end %>
+$("<%= escape_javascript(render(partial: 'products', :locals => {:products => @products, :str => @str})) %>")
+.replaceAll(".product-list");
+checkFollowProduct();

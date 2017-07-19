@@ -1,0 +1,12 @@
+$("<%= escape_javascript(render(partial: 'form', :locals => {:editin_tag => @editin_tag })) %>")
+.replaceAll(".item-edit");
+$('.tag-item').removeClass('editing');
+setTimeout(function(){
+  $('.tag-editor').removeClass('out');
+  $('.tag-item').each(function(index){
+    if ($(this).find('h4').html()==$('.tag-editor .tag-name').val()) {
+      $(this).addClass('editing');
+    }
+  })
+}, 100);
+pageReady();

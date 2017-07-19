@@ -1,22 +1,23 @@
-<h2 align="center">Title: <%= @alert.title %></h2>
+<div class="alert show">
+  <div class='content'>
+    <h1 align="center"><%= @alert.title %></h1>
+    <ul>
+      <% @alert.products.each do |product| %>
+        <li><%= product.name %></li>
+      <% end %>
+      <% @alert.tags.each do |tag| %>
+        <li><%= tag.name %></li>
+      <% end %>
+    </ul>
+    <p class='issue'><%= @alert.issue %></p>
+    <p class='action'><%= @alert.action %></p>
+    <p class='source'>Source: <%= link_to @alert.source, @alert.source %></p>
+    <p class='date'><%= @alert.created_at.strftime('%Y-%m-%d %H:%M') %></p>
 
-
-<p>
-    Issue: <%= @alert.issue %>
-</p>
-
-<p>
-    Action: <%= @alert.action %>
-</p>
-
-<p>
-    Source: <%= @alert.source %>
-</p>
-
-<p>
-    Created: <%= @alert.created_at %>
-</p>
-
-<%= link_to "Edit this alert", edit_alert_path(@alert) %> |
-<%= link_to "Back to alerts listing", alerts_path %>
-
+    <% if current_user.admin %>
+      <%= link_to "Edit this alert", edit_alert_path(@alert) %> |
+    <% end %>
+    <%= link_to "Go to subscribing page", '/subscribe' %> |
+    <%= link_to "Back to alerts listing", (current_user.admin ? alerts_path : '/alerts-listing') %>
+  </div>
+</div>

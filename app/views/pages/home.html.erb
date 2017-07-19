@@ -3,13 +3,13 @@
     <div class='col-sm-7'>
       <div class='text-wrapper'>
         <h2>Vigilance as a Service</h2>
-        <%= link_to "Sign up now", "#", class: "to-sign-up" %>
+        <%= link_to "Sign up now", new_user_registration_path, class: "to-sign-up" %>
       </div>
     </div>
 
     <div class='col-sm-5'>
       <div class='bg-header-image-wrapper'>
-        <img src='/assets/demo-screen.jpg'>
+        <%= image_tag 'demo-screen.jpg' %>
       </div>
     </div>
   </div>
@@ -17,10 +17,7 @@
 <div class='contact'>
   <h2>Have a question or just want to get in touch?</h2>
   <ul>
-    <li><a href='#'><img src='/assets/twiter.png'></a></li>
-    <li><a href='#'><img src='/assets/ico-facebook.png'></a></li>
+    <li><a href='#'><%= image_tag 'twiter.png' %></a></li>
+    <li><a href='#'><%= image_tag 'ico-facebook.png' %></a></li>
   </ul>
-</div>
-<div class='rights'>
-  <p>© 2017 BONSHO. All Rights Reserved.</p>
 </div>

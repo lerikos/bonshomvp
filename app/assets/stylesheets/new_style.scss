@@ -1,11 +1,26 @@
+#logo {
+  float: left;
+  font-size: 1.7em;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  margin-top: 9px;
+  font-family: CinzelDecorativeBold;
+  font-weight: 900;
+  margin-right: 15px;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 .jumbotron {
-  background: url('bg-pattern.png'),linear-gradient(to left,#7b4397,#dc2430);
+  background: image-url('bg-pattern.png'),linear-gradient(to left,#7b4397,#dc2430);
   height: calc(100vh - 52px);
   min-height: 550px;
-  margin-top: -20px;
   margin-bottom: -20px;
   overflow: hidden;
   padding: 0;
+  width: 100%;
 
   .header-wrapper {
     width: 1170px;
@@ -61,7 +76,7 @@
     }
 
     .bg-header-image-wrapper {
-      background: url('iphone.png') top center no-repeat;
+      background: image-url('iphone.png') top center no-repeat;
       background-size: cover;
       position: relative;
       width: 458px;
@@ -122,4 +137,12 @@
     color: grey;
     padding-top: 15px;
   }
+}
+
+.navbar {
+  margin-bottom: 0px;
+}
+
+.row {
+  margin: 0px;
 }

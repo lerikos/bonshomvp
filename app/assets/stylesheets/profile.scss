@@ -1,0 +1,99 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+
+  .profile {
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+
+    .info {
+      width: 30%;
+      border: 1px groove #12124a;
+      padding: 0px 10px;
+      min-width: 300px;
+      float: left;
+
+      h1 {
+        font-size: 25px;
+        margin: 0px;
+        padding: 5px;
+      }
+
+      table {
+        margin: 0px 5px;
+        width: calc(100% - 10px);
+
+        tr {
+          display: flex;
+        }
+
+        td {
+          font-size: 16px;
+          padding: 5px 0px;
+          width: 60%;
+        }
+
+        td:first-child {
+          font-weight: 600;
+          width: 40%;
+        }
+      }
+
+      h1.tags {
+        margin-top: 30px;
+      }
+
+      ul {
+        width: 100%;
+        padding: 0px;
+        padding-top: 10px;
+
+        li {
+          display: inline-block;
+          padding: 5px 20px;
+          border-radius: 10px;
+          background: grey;
+          font-weight: 900;
+          margin-left: 5px;
+          background: rgba(128, 128, 128, .85);
+          cursor: default;
+          margin-bottom: 5px;
+        }
+      }
+    }
+
+    .wrapper {
+      width: 70%;
+      padding-right: 5px;
+
+      .alerts, .products {
+        h1 {
+          font-size: 30px;
+          padding-left: 20px;
+          margin-top: 0px;
+        }
+
+        .alert, .product {
+          padding-top: 0px;
+          padding-bottom: 0px;
+
+          h3 {
+            margin: 0px;
+          }
+        }
+
+        .product {
+          margin-left: 20px;
+        }
+      }
+
+      .products {
+        margin-top: 50px;
+      }
+    }
+  }
+}

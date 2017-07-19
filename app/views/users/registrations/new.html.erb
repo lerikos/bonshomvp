@@ -1,0 +1,41 @@
+<h1 align="center">Signup for Bonsho</h1>
+
+<div class='form'>
+  <div class='wrapper'>
+    <%= form_for(@user, :html => {class: "form-horizontal", role: "form", url: user_registration_path, method: :post}) do |f| %>
+      <div class="form-group firstname">
+        <%= f.label :firstname %>
+        <%= "<span class='error-msg'>#{@user.errors[:firstname].first}</span>".html_safe unless @user.errors[:firstname].empty? %>
+        <%= f.text_field :firstname, onkeyup: "check('.firstname')", class: "#{'failed' unless @user.errors[:firstname].empty?}", autocomplete: "off" %>
+      </div>
+      <div class="form-group lastname">
+        <%= f.label :lastname %>
+        <%= "<span class='error-msg'>#{@user.errors[:lastname].first}</span>".html_safe unless @user.errors[:lastname].empty? %>
+        <%= f.text_field :lastname, onkeyup: "check('.lastname')", class: "#{'failed' unless @user.errors[:lastname].empty?}", autocomplete: "off" %>
+      </div>
+      <div class="form-group username">
+        <%= f.label :username %>
+        <%= "<span class='error-msg'>#{@user.errors[:username].first}</span>".html_safe unless @user.errors[:username].empty? %>
+        <%= f.text_field :username, onkeyup: "check('.username')", class: "#{'failed' unless @user.errors[:username].empty?}", autocomplete: "off" %>
+      </div>
+      <div class="form-group email">
+        <%= f.label :email %>
+        <%= "<span class='error-msg'>#{@user.errors[:email].first}</span>".html_safe unless @user.errors[:email].empty? %>
+        <%= f.email_field :email, onkeyup: "check('.email')", class: "#{'failed' unless @user.errors[:email].empty?}", autocomplete: "off" %>
+      </div>
+      <div class="form-group password">
+        <%= f.label :password %>
+        <%= "<span class='error-msg'>#{@user.errors[:password].first}</span>".html_safe unless @user.errors[:password].empty? %>
+        <%= f.password_field :password, onkeyup: "check('.password')", class: "#{'failed' unless @user.errors[:password].empty?}", autocomplete: "off" %>
+      </div>
+      <div class="form-group password-confirmation">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, onkeyup: "check('.password-confirmation')", class: "#{'failed' unless @user.errors[:password].empty?}", autocomplete: "off" %>
+      </div>
+      <%= submit_tag "Sign up", class: 'btn btn-primary btn-lg form-submit' %>
+    <% end %>
+
+    <%= link_to "Already signed up? Sign in", new_user_session_path, class: 'back' %>
+    <%= link_to "Back home", root_path, class: 'back' %>
+  </div>
+</div>

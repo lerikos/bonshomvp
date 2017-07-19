@@ -1,0 +1,31 @@
+<div class='page-wrapper'>
+  <div class='subscribe-content'>
+    <!-- <div class='tag-list'>
+      <h1>Follow Via Tag</h1>
+      <ul>
+        <% @tags.each do |tag| %>
+          <li class='tag-item <%= 'in' if check(tag) %>' data-id=<%= tag.id %>>
+            <h3><%= tag.name %></h3>
+          </li>
+        <% end %>
+      </ul>
+    </div> -->
+    <div class='product-list without-tag'>
+      <h1>Follow Via Product</h1>
+      <%= form_tag '/search', {:multipart => true, method: "post", class: 'form', remote: true} do %>
+        <%= text_field_tag 'search', '', placeholder: 'Enter keywords', value: @str || '' %>
+        <%= submit_tag 'Search', class: 'search-submit' %>
+      <% end %>
+      <% @products.each do |product| %>
+        <div class='product-item'>
+          <h3>
+            <%= product.name %>
+            <span class='status <%= product.subscribers.find_by(user_id: current_user.id) ? 'added' : 'in' %>' data-id=<%= product.id %>></span>
+          </h3>
+          <p><%= product.description %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<script>checkFollowTag();checkFollowProduct();</script>
